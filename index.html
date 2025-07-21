@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zouikri Messaoud - Academic Profile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #1a252f;
+            --success: #27ae60;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+            --radius: 8px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+            scroll-behavior: smooth;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--dark));
+            color: white;
+            padding: 2rem 0;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><polygon points="0,100 100,0 100,100" fill="rgba(255,255,255,0.05)"/></svg>');
+            background-size: cover;
+        }
+        
+        .header-content {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+        
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            background: linear-gradient(45deg, #34495e, #2c3e50);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .profile-img i {
+            font-size: 5rem;
+            color: rgba(255, 255, 255, 0.3);
+        }
+        
+        .profile-info {
+            flex: 1;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .title {
+            font-size: 1.4rem;
+            color: #ecf0f1;
+            margin-bottom: 1rem;
+            font-weight: 300;
+        }
+        
+        .affiliation {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 1rem;
+        }
+        
+        .affiliation i {
+            color: var(--secondary);
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 1rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 8px 15px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+        
+        .contact-item:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        /* Navigation */
+        nav {
+            background-color: white;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: center;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 5px;
+        }
+        
+        .nav-links li {
+            padding: 0;
+        }
+        
+        .nav-links a {
+            display: block;
+            padding: 1.2rem 1.5rem;
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+            border-radius: 4px;
+        }
+        
+        .nav-links a:hover {
+            color: var(--secondary);
+            background: rgba(52, 152, 219, 0.05);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--secondary);
+            transition: var(--transition);
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 4rem 0;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-header h2 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--secondary);
+            border-radius: 2px;
+        }
+        
+        .section-header p {
+            color: #7f8c8d;
+            max-width: 700px;
+            margin: 0.8rem auto 0;
+            font-size: 1.1rem;
+        }
+        
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+        
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .about-text h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--secondary);
+            border-radius: 2px;
+        }
+        
+        .about-text p {
+            margin-bottom: 1.2rem;
+            color: #555;
+            font-size: 1.05rem;
+        }
+        
+        .research-interests {
+            margin-top: 2rem;
+        }
+        
+        .interests-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 1rem;
+        }
+        
+        .interest-item {
+            background: white;
+            padding: 15px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .interest-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+            border-color: rgba(52, 152, 219, 0.2);
+        }
+        
+        .interest-item i {
+            font-size: 1.8rem;
+            color: var(--secondary);
+            margin-bottom: 10px;
+        }
+        
+        .interest-item h4 {
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        /* Publications Section */
+        .publication-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .tab-btn {
+            padding: 12px 25px;
+            background: white;
+            border: 2px solid var(--secondary);
+            color: var(--secondary);
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        
+        .tab-btn.active, .tab-btn:hover {
+            background: var(--secondary);
+            color: white;
+        }
+        
+        .publication-list {
+            display: none;
+        }
+        
+        .publication-list.active {
+            display: block;
+        }
+        
+        .pub-item {
+            background: white;
+            border-radius: var(--radius);
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border-left: 4px solid var(--secondary);
+        }
+        
+        .pub-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .pub-year {
+            display: inline-block;
+            background: var(--secondary);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        .pub-title {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        .pub-authors {
+            color: #7f8c8d;
+            margin-bottom: 10px;
+            font-style: italic;
+        }
+        
+        .pub-journal {
+            color: var(--dark);
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+        
+        .pub-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .pub-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: var(--light);
+            border-radius: 4px;
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 500;
+            transition: var(--transition);
+            font-size: 0.9rem;
+        }
+        
+        .pub-link:hover {
+            background: var(--secondary);
+            color: white;
+        }
+        
+        /* Documents Section */
+        .documents-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 2rem;
+        }
+        
+        .document-card {
+            background: white;
+            border-radius: var(--radius);
+            padding: 25px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .document-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            border-color: rgba(52, 152, 219, 0.2);
+        }
+        
+        .document-card i {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 15px;
+        }
+        
+        .document-card h4 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+        
+        .document-card p {
+            color: #7f8c8d;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+        
+        .doc-btn {
+            display: inline-block;
+            padding: 8px 20px;
+            background: var(--secondary);
+            color: white;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        .doc-btn:hover {
+            background: var(--primary);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 0 2rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--secondary);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary);
+            transform: translateX(5px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #95a5a6;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .contact-info {
+                justify-content: center;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .nav-links a {
+                padding: 1rem;
+            }
+            
+            section {
+                padding: 3rem 0;
+            }
+            
+            .publication-tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .tab-btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+        
+        /* Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animated {
+            animation: fadeIn 0.6s ease forwards;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="header-content animated">
+                <div class="profile-img">
+                    <i class="fas fa-user-graduate"></i>
+                </div>
+                <div class="profile-info">
+                    <h1>Zouikri Messaoud</h1>
+                    <div class="title">Research Engineer in Economics</div>
+                    <div class="affiliation">
+                        <i class="fas fa-university"></i>
+                        <span>Université Paris Nanterre, EconomiX-CNRS</span>
+                    </div>
+                    <p>Specializing in applied econometrics, data modeling and statistical computing techniques.</p>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>mzouikri@parisnanterre.fr</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Paris, France</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="nav-container">
+                <ul class="nav-links">
+                    <li><a href="#about"><i class="fas fa-user"></i> About</a></li>
+                    <li><a href="#publications"><i class="fas fa-book"></i> Publications</a></li>
+                    <li><a href="#documents"><i class="fas fa-download"></i> Documents</a></li>
+                    <li><a href="https://economix.fr/fr/membre/zouikri-messaoud" target="_blank"><i class="fas fa-external-link-alt"></i> Economix Profile</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="section-header animated">
+                <h2>About Me</h2>
+                <p>Learn about my academic background and research interests</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text animated">
+                    <h3>Academic Profile</h3>
+                    <p>I am a Research Engineer at Université Paris Nanterre and EconomiX-CNRS. My research focuses on econometric methods with applications to economics and innovation studies.</p>
+                    <p>I hold a PhD in Economics from Paris Dauphine University. My work emphasizes the development and application of econometrics methods to solve real-world economic problems, particularly in the areas of innovation, firm growth, and regional development.</p>
+                    <p>I regularly present my research at international conferences and collaborate with researchers from various institutions.</p>
+                    
+                    <div class="research-interests">
+                        <h3>Research Interests</h3>
+                        <div class="interests-grid">
+                            <div class="interest-item">
+                                <i class="fas fa-chart-line"></i>
+                                <h4>Econometrics</h4>
+                            </div>
+                            <div class="interest-item">
+                                <i class="fas fa-lightbulb"></i>
+                                <h4>Innovation Studies</h4>
+                            </div>
+                            <div class="interest-item">
+                                <i class="fas fa-building"></i>
+                                <h4>Firm Growth</h4>
+                            </div>
+                            <div class="interest-item">
+                                <i class="fas fa-globe-europe"></i>
+                                <h4>Regional Development</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-text animated">
+                    <h3>Education</h3>
+                    <div class="pub-item">
+                        <div class="pub-year">2008</div>
+                        <div class="pub-title">PhD in Economics</div>
+                        <div class="pub-authors">Paris Dauphine University</div>
+                        <div class="pub-journal">Thesis: R&D and innovation strategies in the pharmaceutical industry in France</div>
+                    </div>
+                    
+                    <div class="pub-item">
+                        <div class="pub-year">2000</div>
+                        <div class="pub-title">Master in Economics of innovation</div>
+                        <div class="pub-authors">Paris Dauphine University</div>
+                    </div>
+                                        
+                    <h3 style="margin-top: 30px;">Professional Experience</h3>
+                    <p>Research Engineer, Université Paris Nanterre (2008-Present)</p>
+                    <p>Research Fellow, EconomiX-CNRS (2010-Present)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications Section -->
+    <section id="publications" style="background-color: #f0f7ff;">
+        <div class="container">
+            <div class="section-header animated">
+                <h2>Publications</h2>
+                <p>Peer-reviewed journal articles and research outputs</p>
+            </div>
+            
+            <div class="publication-tabs animated">
+                <button class="tab-btn active" onclick="openTab('journals')">Journal Articles</button>
+                <button class="tab-btn" onclick="openTab('chapters')">Book Chapters</button>
+                <button class="tab-btn" onclick="openTab('conferences')">Conference Papers</button>
+                <button class="tab-btn" onclick="openTab('working')">Working Papers</button>
+            </div>
+            
+            <div id="journals" class="publication-list active">
+                <div class="pub-item animated">
+                    <div class="pub-year">2019</div>
+                    <div class="pub-title">Impact de la politique de mise à niveau sur l'innovation : le cas des entreprises industrielles algériennes</div>
+                    <div class="pub-authors">Amdaoud, Mounir and Zouikri, Messaoud</div>
+                    <div class="pub-journal">Revue d'économie industrielle, 168, pp. 9-44</div>
+                    <div class="pub-links">
+                        <a href="https://hal.science/hal-03059434" class="pub-link" target="_blank">
+                            <i class="fas fa-external-link-alt"></i> View Publication
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="pub-item animated">
+                    <div class="pub-year">2016</div>
+                    <div class="pub-title">Chapter 11 Stocks: Information Uncertainty</div>
+                    <div class="pub-authors">Brédart, Xavier and Levratto, Nadine and Zouikri, Messaoud</div>
+                    <div class="pub-journal">Accounting and Finance Research, 5(1), pp. 130-136</div>
+                    <div class="pub-links">
+                        <a href="https://hal.science/hal-02908611" class="pub-link" target="_blank">
+                            <i class="fas fa-external-link-alt"></i> View Publication
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="pub-item animated">
+                    <div class="pub-year">2014</div>
+                    <div class="pub-title">The Interrelationship between Formal and Informal Decentralization and Its Impact on Sub-Central Governance Performance: the Case of Vietnam</div>
+                    <div class="pub-authors">Vu, Thanh Thuy and Zouikri, Messaoud and Deffains, Bruno</div>
+                    <div class="pub-journal">CESifo Economic Studies, 60(3), pp. 613-652</div>
+                    <div class="pub-links">
+                        <a href="https://hal.parisnanterre.fr/hal-01385917" class="pub-link" target="_blank">
+                            <i class="fas fa-external-link-alt"></i> View Publication
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="chapters" class="publication-list">
+                <div class="pub-item animated">
+                    <div class="pub-year">2017</div>
+                    <div class="pub-title">Dynamique et technicité des échanges commerciaux algéro-chinois (2003-2015)</div>
+                    <div class="pub-authors">Zouikri, Messaoud</div>
+                    <div class="pub-journal">In: La Chine en Algérie. Approches socio-économiques, pp. 69-85</div>
+                    <div class="pub-links">
+                        <a href="https://hal.science/hal-01565634" class="pub-link" target="_blank">
+                            <i class="fas fa-external-link-alt"></i> View Chapter
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="pub-item animated">
+                    <div class="pub-year">2016</div>
+                    <div class="pub-title">Investissements directs étrangers et capacité d'absorption nationale: les leviers de croissance des économies du Maghreb</div>
+                    <div class="pub-authors">Zouikri, Messaoud and Benslimane, Sonia</div>
+                    <div class="pub-journal">In: L'avenir des économies du Maghreb, pp. 19-45</div>
+                    <div class="pub-links">
+                        <a href="https://hal.science/hal-02908632" class="pub-link" target="_blank">
+                            <i class="fas fa-external-link-alt"></i> View Chapter
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="pub-item animated">
+                    <div class="pub-year">2013</div>
+                    <div class="pub-title">Do French firms grow differently and why? An empirical analysis using longitudinal data</div>
+                    <div class="pub-authors">Levratto, Nadine and Tessier, Luc and Zouikri, Messaoud</div>
+                    <div class="pub-journal">In: High growth SMEs, OECD Publishing</div>
+                    <div class="pub-links">
+                        <a href="https://hal.parisnanterre.fr/hal-01410741" class="pub-link" target="_blank">
+                            <i class="fas fa-external-link-alt"></i> View Chapter
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="conferences" class="publication-list">
+                <div class="pub-item animated">
+                    <div class="pub-year">2020</div>
+                    <div class="pub-title">Modélisation de la croissance des entreprises. Contraintes à l'utilisation et analyse de données</div>
+                    <div class="pub-authors">Zouikri, Messaoud</div>
+                    <div class="pub-journal">Semaine Data-SHS, Nanterre, France</div>
+                    <div class="pub-links">
+                        <a href="https://hal.science/hal-03063870" class="pub-link" target="_blank">
+                            <i class="fas fa-external-link-alt"></i> View Paper
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="pub-item animated">
+                    <div class="pub-year">2017</div>
+                    <div class="pub-title">Determinants of innovation activities in the Algerian manufacturing firms</div>
+                    <div class="pub-authors">Zouikri, Messaoud and Amdaoud, Mounir</div>
+                    <div class="pub-journal">2017 Africa Meeting of the Econometric Society, Algiers, Algeria</div>
+                    <div class="pub-links">
+                        <a href="https://hal.science/hal-01565635" class="pub-link" target="_blank">
+                            <i class="fas fa-external-link-alt"></i> View Paper
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="pub-item animated">
+                    <div class="pub-year">2015</div>
+                    <div class="pub-title">Les relations économiques Chine-Afrique et le développement de la capacité d'absorption locale des pays africains</div>
+                    <div class="pub-authors">Zouikri, Messaoud</div>
+                    <div class="pub-journal">La Chine en Algérie: entre économie mondialisée et développement local, Constantine, Algeria</div>
+                    <div class="pub-links">
+                        <a href="https://hal.parisnanterre.fr/hal-01411816" class="pub-link" target="_blank">
+                            <i class="fas fa-external-link-alt"></i> View Paper
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="working" class="publication-list">
+                <div class="pub-item animated">
+                    <div class="pub-year">2018</div>
+                    <div class="pub-title">Compétences externes et innovation: le cas des firmes de l'industrie manufacturière algérienne</div>
+                    <div class="pub-authors">Amdaoud, Mounir and Zouikri, Messaoud</div>
+                    <div class="pub-journal">EconomiX Working Paper 2018-37</div>
+                    <div class="pub-links">
+                        <a href="https://hal.science/hal-04141692" class="pub-link" target="_blank">
+                            <i class="fas fa-external-link-alt"></i> View Paper
+                        </a>
+                        <a href="https://hal.science/hal-04141692v1/file/WP_EcoX_2018-37.pdf" class="pub-link">
+                            <i class="fas fa-file-pdf"></i> Download PDF
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="pub-item animated">
+                    <div class="pub-year">2013</div>
+                    <div class="pub-title">Dynamique des territoires et création d'entreprises : une analyse des départements français en 2008</div>
+                    <div class="pub-authors">Levratto, Nadine and Carré, Denis and Zouikri, Messaoud</div>
+                    <div class="pub-journal">EconomiX Working Paper 2013-18</div>
+                    <div class="pub-links">
+                        <a href="https://shs.hal.science/halshs-00840365" class="pub-link" target="_blank">
+                            <i class="fas fa-external-link-alt"></i> View Paper
+                        </a>
+                        <a href="https://shs.hal.science/halshs-00840365v1/file/WP_EcoX_2013-18.pdf" class="pub-link">
+                            <i class="fas fa-file-pdf"></i> Download PDF
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="pub-item animated">
+                    <div class="pub-year">2011</div>
+                    <div class="pub-title">Small, alone and poor: a merciless portrait of insolvent French firms, 2007-2010</div>
+                    <div class="pub-authors">Levratto, Nadine and Tessier, Luc and Zouikri, Messaoud</div>
+                    <div class="pub-journal">EconomiX Working Paper 2011-36</div>
+                    <div class="pub-links">
+                        <a href="https://hal.science/hal-04140945" class="pub-link" target="_blank">
+                            <i class="fas fa-external-link-alt"></i> View Paper
+                        </a>
+                        <a href="https://hal.science/hal-04140945v1/file/WP_EcoX_2011-36.pdf" class="pub-link">
+                            <i class="fas fa-file-pdf"></i> Download PDF
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Documents Section -->
+    <section id="documents">
+        <div class="container">
+            <div class="section-header animated">
+                <h2>Documents & Resources</h2>
+                <p>Access my research materials and academic documents</p>
+            </div>
+            
+            <div class="documents-grid">
+                <div class="document-card animated">
+                    <i class="fas fa-book"></i>
+                    <h4>Publications</h4>
+                    <p>Complete collection of peer-reviewed journal articles</p>
+                    <a href="https://economix.fr/fr/membre/zouikri-messaoud/pdf/publi" class="doc-btn" target="_blank">
+                        View Publications
+                    </a>
+                </div>
+                
+                <div class="document-card animated">
+                    <i class="fas fa-file-alt"></i>
+                    <h4>Working Papers</h4>
+                    <p>Research papers and working documents</p>
+                    <a href="https://economix.fr/fr/membre/zouikri-messaoud/pdf/dt" class="doc-btn" target="_blank">
+                        View Papers
+                    </a>
+                </div>
+                
+                <div class="document-card animated">
+                    <i class="fas fa-folder-open"></i>
+                    <h4>All Documents</h4>
+                    <p>Complete collection of academic materials</p>
+                    <a href="https://economix.fr/fr/membre/zouikri-messaoud/pdf/all" class="doc-btn" target="_blank">
+                        View All
+                    </a>
+                </div>
+                
+                <div class="document-card animated">
+                    <i class="fas fa-user"></i>
+                    <h4>Economix Profile</h4>
+                    <p>Visit my official Economix profile page</p>
+                    <a href="https://economix.fr/fr/membre/zouikri-messaoud" class="doc-btn" target="_blank">
+                        Visit Profile
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Zouikri Messaoud</h3>
+                    <p>Research Engineer in Economics at Université Paris Nanterre and researcher at EconomiX-CNRS.</p>
+                    <p>Specializing in econometrics, innovation studies, and firm growth analysis.</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#about"><i class="fas fa-chevron-right"></i> About Me</a></li>
+                        <li><a href="#publications"><i class="fas fa-chevron-right"></i> Publications</a></li>
+                        <li><a href="#documents"><i class="fas fa-chevron-right"></i> Documents</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Research Profiles</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://economix.fr/fr/membre/zouikri-messaoud" target="_blank"><i class="fas fa-external-link-alt"></i> Economix Profile</a></li>
+                        <li><a href="https://hal.archives-ouvertes.fr/search/index/q/*/authFullName_s/Messaoud+Zouikri" target="_blank"><i class="ai ai-open-access"></i> HAL Archives</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact</h3>
+                    <ul class="footer-links">
+                        <li><a href="mailto:mzouikri@parisnanterre.fr"><i class="fas fa-envelope"></i> mzouikri@parisnanterre.fr</a></li>
+                        <li><a href="#"><i class="fas fa-building"></i> Université Paris Nanterre</a></li>
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> 200 Avenue de la République, 92000 Nanterre, France</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Zouikri Messaoud. All rights reserved. | Designed for GitHub Pages</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Tab functionality for publications
+        function openTab(tabName) {
+            // Hide all tab content
+            const tabContents = document.getElementsByClassName('publication-list');
+            for (let i = 0; i < tabContents.length; i++) {
+                tabContents[i].classList.remove('active');
+            }
+            
+            // Remove active class from all buttons
+            const tabButtons = document.getElementsByClassName('tab-btn');
+            for (let i = 0; i < tabButtons.length; i++) {
+                tabButtons[i].classList.remove('active');
+            }
+            
+            // Show the current tab, and add an "active" class to the button that opened the tab
+            document.getElementById(tabName).classList.add('active');
+            event.currentTarget.classList.add('active');
+            
+            // Scroll to the publications section if needed
+            if(window.innerWidth <= 768) {
+                document.getElementById('publications').scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+        
+        // Simple animation on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const animatedElements = document.querySelectorAll('.animated');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            animatedElements.forEach(element => {
+                element.style.opacity = 0;
+                element.style.transition = 'opacity 0.6s ease';
+                observer.observe(element);
+            });
+        });
+    </script>
+</body>
+</html>
