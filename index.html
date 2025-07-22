@@ -592,7 +592,9 @@
                 <div class="contact-info">
                     <div class="contact-item">
                         <i class="fas fa-envelope"></i>
-                        <span>mzouikri<!-- spam-protection -->@<!-- -->parisnanterre.fr</span>
+                        <a href="#" class="protected-email" data-user="mzouikri" data-domain="parisnanterre.fr" style="text-decoration: none; color: inherit;">
+                            <span>mzouikri<!-- anti-spam -->@<!-- -->parisnanterre.fr</span>
+                        </a>
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-map-marker-alt"></i>
@@ -603,6 +605,18 @@
         </div>
     </div>
 </header>
+
+<script>
+// Email protection (can be placed once in your site's main JS or before </body>)
+document.addEventListener('DOMContentLoaded', function() {
+    const protectedEmails = document.querySelectorAll('.protected-email');
+    protectedEmails.forEach(element => {
+        const user = element.getAttribute('data-user');
+        const domain = element.getAttribute('data-domain');
+        element.setAttribute('href', 'mailto:' + user + '@' + domain);
+    });
+});
+</script>
 
     <!-- Navigation -->
     <nav>
@@ -931,14 +945,39 @@
                 </div>
                 
                 <div class="footer-column">
-                    <h3>Contact</h3>
-                    <ul class="footer-links">
-                        <li><a href="mailto:mzouikri@parisnanterre.fr"><i class="fas fa-envelope"></i> mzouikri@parisnanterre.fr</a></li>
-                        <li><a href="#"><i class="fas fa-building"></i> Université Paris Nanterre</a></li>
-                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> 200 Avenue de la République, 92000 Nanterre, France</a></li>
-                    </ul>
-                </div>
-            </div>
+    <h3>Contact</h3>
+    <ul class="footer-links">
+        <li>
+            <a href="#" class="protected-email" data-user="mzouikri" data-domain="parisnanterre.fr">
+                <i class="fas fa-envelope"></i> 
+                <span class="email-text">mzouikri<!-- anti-spam -->@<!-- -->parisnanterre.fr</span>
+            </a>
+        </li>
+        <li><a href="https://www.parisnanterre.fr/" target="_blank" rel="noopener noreferrer"><i class="fas fa-building"></i> Université Paris Nanterre</a></li>
+        <li><a href="https://maps.google.com/?q=200+Avenue+de+la+République,+92000+Nanterre,+France" target="_blank" rel="noopener noreferrer"><i class="fas fa-map-marker-alt"></i> 200 Avenue de la République, 92000 Nanterre, France</a></li>
+    </ul>
+</div>
+
+<script>
+// Email protection with fallback
+document.addEventListener('DOMContentLoaded', function() {
+    const emailLinks = document.querySelectorAll('.protected-email');
+    emailLinks.forEach(link => {
+        const user = link.getAttribute('data-user');
+        const domain = link.getAttribute('data-domain');
+        const email = user + '@' + domain;
+        
+        link.setAttribute('href', 'mailto:' + email);
+        link.addEventListener('click', function(e) {
+            if (!link.href.includes('mailto:')) {
+                e.preventDefault();
+                link.href = 'mailto:' + email;
+                link.click();
+            }
+        });
+    });
+});
+</script>
             
             <div class="copyright">
                 <p>&copy; 2023 Zouikri Messaoud. All rights reserved. | Designed for GitHub Pages</p>
